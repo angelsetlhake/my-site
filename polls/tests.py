@@ -31,7 +31,7 @@ class QuestionMethodTests(TestCase):
     	was_published_recently() should return True for questions whose
     	pub_date is within the last day.......
     	"""
-    	time = timezone.now() - datetime.timedelta(hours=2)
+    	time = timezone.now() - datetime.timedelta(hours=1)
     	recent_question = Question(pub_date=time)
     	self.assertEqual(recent_question.was_published_recently(), True)
     	
