@@ -5,6 +5,7 @@ from django.test import TestCase
 
 from .models import Question
 
+# stupid comment
 class QuestionMethodTests(TestCase):
 
     def test_was_published_recently_with_future_question(self):
@@ -107,9 +108,8 @@ class QuestionViewTests(TestCase):
             response.context['latest_question_list'],
             ['<Question: Past question 2.>', '<Question: Past question 1.>']
         )
-        
-        
-        
+           
+          
 class QuestionIndexDetailTests(TestCase):
     def test_detail_view_with_a_future_question(self):
         """
