@@ -2,6 +2,7 @@ import datetime
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.test import TestCase
+from .models import Choice
 
 from .models import Question
 
@@ -135,6 +136,28 @@ class QuestionIndexDetailTests(TestCase):
         self.assertContains(response, past_question.question_text,
                             status_code=200)
                             
+        """----------------------MY TESTS-----------------------"""
+
+        """Check the attribute name for pub_date""" 
+                           
+    def test_verbose_name_for_pub_date(self):
+    	for field in Question._meta.fields:
+        		if field.name ==  'pub_date':
+            			self.assertEquals(field.verbose_name, 'Date published')
+            			
+        """check if number of votes is initialized to 0"""   			
+            			
+    def test_choice_defaults(self):
+    	choice = Choice()
+    	self.assertEquals(choice.votes, 0) 
+    	
+    """should return true for choices that are the same"""	
+    def test_same_choices(self):
+      	choice_1= Choice("hell")
+      	choice_2=Choice("hello")
+      	self.assertNotEqual(choice_1,choice_2,True) 	      			
+
+
     
                             
                             
