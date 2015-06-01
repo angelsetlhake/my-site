@@ -29,7 +29,7 @@ class QuestionMethodTests(TestCase):
 	def test_was_published_recently_with_recent_question(self):
    	    """
     	was_published_recently() should return True for questions whose
-    	pub_date is within the last day....
+    	pub_date is within the last day.......
     	"""
     	time = timezone.now() - datetime.timedelta(hours=2)
     	recent_question = Question(pub_date=time)
